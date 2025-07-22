@@ -30,7 +30,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: "built-amd64"
-          path: "artifacts"
+          path: "myapp/artifacts"
 
   build-arm64:
     runs-on: ubuntu-24.04-arm
@@ -45,12 +45,12 @@ jobs:
           cd myapp
           cargo build --release
           mkdir -p artifacts
-          mv target/release/myapp artifacts
+          mv target/release/myapp artifacts/myapp
       
       - uses: actions/upload-artifact@v4
         with:
           name: "built-arm64"
-          path: "artifacts"
+          path: "myapp/artifacts"
 
   make-image:
     runs-on: ubuntu-latest
