@@ -1,0 +1,8 @@
+<html>
+    <head>
+        <title>It actually works</title>
+    </head>
+    <body>
+        This is not the default nginx index.html, it's the custom one. This was built for amd64 arch.
+    </body>
+</html>
