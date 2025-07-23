@@ -72,12 +72,6 @@ jobs:
       - name: Set up Docker Buildx
         run: |
           docker buildx create --use
-      
-      - name: List files
-        run: |
-          ls -lah
-          ls -lah built-arm64 || echo "nope"
-          ls -lah built-amd64 || echo "nope"
 
       # Uses the `docker/login-action` action to log in to the Container registry registry using the account and password that will publish the packages. Once published, the packages are scoped to the account defined here.
       - name: Log in to the Container registry
@@ -92,5 +86,5 @@ jobs:
           docker buildx build \
             --file ./Dockerfile \
             --platform linux/arm64,linux/amd64 \
-            --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }} \
+            --tag ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}/sample:${{ github.ref_name }} \
             --push .
